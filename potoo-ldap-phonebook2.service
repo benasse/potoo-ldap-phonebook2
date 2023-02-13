@@ -1,0 +1,13 @@
+[Unit]
+Description=potoo LDAP phonebook
+
+[Service]
+PIDFile=/run/potoo-ldap-phonebook2.pid
+User=asterisk
+Group=asterisk
+WorkingDirectory=/usr/local/bin
+ExecStart=/usr/local/bin/potoo-ldap-phonebook2 --sce --lu uid=potoo --lp MiCht+47QF496zoeyxa= --wp mysuperpassword
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

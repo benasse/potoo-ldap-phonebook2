@@ -1,0 +1,7 @@
+name: potoo-ldap-phonebook
+namespace: sparrow
+version: 1.0.0
+author: Benoît Stahl
+display_name: Potoo ldap phonebook 🦉
+description: ⚡️ This plugin allow expose wazo directory through ldap
+homepage: https://github.com/benasse/potoo-ldap-phonebook2
