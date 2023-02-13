@@ -1,0 +1,33 @@
+name: Main
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v3
+    - name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: "npm"
+    - run: npm install
+    - name: prepare enviroment
+      run: npm install -g pkg
+    - name: Build with pkg
+      run: npx pkg .
+    - name: Create release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: potoo-ldap-phonebook2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
