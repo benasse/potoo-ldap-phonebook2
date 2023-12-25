@@ -9,7 +9,7 @@
     "pkg": "^5.8.0"
   },
   "name": "potoo-ldap-phonebook2",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "main": "main.js",
   "bin": "main.js",

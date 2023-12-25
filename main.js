@@ -213,12 +213,13 @@ async function main() {
     if (filters.type === 'equal') {
       if (filters.attribute === 'cn' || filters.attribute === 'telephonenumber') {
         if (dird_search_string === null) {
+          const searched_string = filters.toString().split("=")[1].slice(0, -1);
           // if searched number is a internal number
           const internal_number_regex = /^\d{2,6}$/;
-          if (internal_number_regex.test(filters.toString().split("=")[1].slice(0, -1))) {
+          if (internal_number_regex.test(searched_string) && filters.attribute === 'telephonenumber') {
             logger.info(logId + ' skiped because this is a internal phone number: ' + filters.toString());
           } else {
-            dird_search_string = filters.toString().split("=")[1].slice(0, -1);
+            dird_search_string = searched_string;
           }
         } else { logger.verbose(logId + ' skiped because not the first match: ' + filters.toString()); }
       } else { logger.verbose(logId + ' skiped because not a supported attribut: ' + filters.attribute); }
