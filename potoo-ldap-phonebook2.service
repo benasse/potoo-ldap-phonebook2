@@ -8,6 +8,7 @@ Group=asterisk
 WorkingDirectory=/usr/local/bin
 ExecStart=/usr/local/bin/potoo-ldap-phonebook2 --sce --lu uid=potoo --lw MiCht+47QF496zoeyxa= --wp mysuperpassword
 Restart=on-failure
+Requires=wazo-auth
 
 [Install]
 WantedBy=multi-user.target
