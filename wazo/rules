@@ -15,16 +15,14 @@ case "$1" in
         ;;
 
     install)
-	systemctl enable potoo-ldap-phonebook2
-	systemctl start potoo-ldap-phonebook2
         ;;
 
     uninstall)
         systemctl stop potoo-ldap-phonebook2
-	systemctl disable potoo-ldap-phonebook2
-	rm -rf /lib/systemd/system/potoo-ldap-phonebook2.service
-	rm -rf /usr/local/bin/potoo-ldap-phonebook2
-	systemctl daemon-reload
+        systemctl disable potoo-ldap-phonebook2
+        rm -rf /lib/systemd/system/potoo-ldap-phonebook2.service
+        rm -rf /usr/local/bin/potoo-ldap-phonebook2
+        systemctl daemon-reload
         ;;
 
     *)
